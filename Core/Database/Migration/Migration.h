@@ -1,0 +1,9 @@
+#ifndef MELLIANCORE_MIGRATION_H
+#define MELLIANCORE_MIGRATION_H
+
+class Migration
+{
+
+};
+
+#endif //MELLIANCORE_MIGRATION_H

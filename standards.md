@@ -1,0 +1,3 @@
+- code styling and formatting must be same
+- DotEnv class must be used solely in config files
+- Config must be used with full namespace you are not allowed to do it differently
