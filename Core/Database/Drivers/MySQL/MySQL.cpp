@@ -1,11 +1,9 @@
 #include <map>
 #include <vector>
-#include <variant>
 #include <string>
 #include <mysql-cppconn-8/mysqlx/xdevapi.h>
 #include "Config.h"
 #include "MySQL.h"
-#include "Model.h"
 
 mysqlx::Session MySQL::getSession()
 {
@@ -21,7 +19,11 @@ mysqlx::Session MySQL::getSession()
 
 bool MySQL::unprepared(const std::string &raw_statement)
 {
-    return false;
+    mysqlx::Session session = getSession();
+
+    session.sql(raw_statement).execute();
+
+    return true;
 }
 
 std::map<std::int64_t, std::map<std::string, std::string>> MySQL::all(const std::string &raw_statement)

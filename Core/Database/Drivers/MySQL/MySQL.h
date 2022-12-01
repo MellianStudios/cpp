@@ -4,8 +4,6 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include <variant>
-#include <optional>
 #include <mysql-cppconn-8/mysqlx/xdevapi.h>
 #include "Model.h"
 

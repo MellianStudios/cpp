@@ -2,7 +2,7 @@
 #include <vector>
 #include "Config.h"
 #include "Model.h"
-#include "MySQL.h"
+#include "DB.h"
 
 void Model::loadByColumnValue(
     const std::string &where_clause,
@@ -29,5 +29,5 @@ void Model::loadByColumnValue(
     std::string statement =
         "SELECT " + select + " FROM " + getDatabaseName() + "." + getTableName() + " WHERE " + where_clause;
 
-    MySQL::first(*this, statement, bindings, getColumnList(), select_columns);
+    DB::first(*this, statement, bindings, getColumnList(), select_columns);
 }

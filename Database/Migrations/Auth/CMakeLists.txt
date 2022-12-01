@@ -1,0 +1,4 @@
+add_library(Migration_2022_11_27_01_47_07_create_accounts_table 2022_11_27_01_47_07_create_accounts_table/Migration_2022_11_27_01_47_07_create_accounts_table.h 2022_11_27_01_47_07_create_accounts_table/Migration_2022_11_27_01_47_07_create_accounts_table.cpp)
+target_include_directories(Migration_2022_11_27_01_47_07_create_accounts_table PUBLIC "../../../Core/Database/Migration")
+target_include_directories(Migration_2022_11_27_01_47_07_create_accounts_table PUBLIC "../../../Config")
+target_link_libraries(Migration_2022_11_27_01_47_07_create_accounts_table PUBLIC Migration Config)

@@ -19,9 +19,9 @@ int main()
 
             std::cin >> id;
 
-            Account account = Account::getByColumnValue("id = ?", {id});
+            Account *account = Account::getByColumnValue("id = ?", {id});
 
-            std::cout << "username " << account.m_username << std::endl;
+            std::cout << "username " << account->m_username << std::endl;
         }
 
         if (command == "exit") {

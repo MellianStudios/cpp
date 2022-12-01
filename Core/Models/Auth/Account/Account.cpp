@@ -1,7 +1,6 @@
 #include <iostream>
 #include <map>
 #include "Account.h"
-#include "Config.h"
 
 const std::string Account::m_table = "account";
 
@@ -128,7 +127,7 @@ void Account::setMember(
     }
 }
 
-Account Account::getByColumnValue(
+Account *Account::getByColumnValue(
     const std::string &where_clause,
     const std::vector<Config::Database::input_types> &bindings,
     const std::vector<std::string> &select_columns
@@ -138,5 +137,5 @@ Account Account::getByColumnValue(
 
     account->loadByColumnValue(where_clause, bindings, select_columns);
 
-    return *account;
+    return account;
 }

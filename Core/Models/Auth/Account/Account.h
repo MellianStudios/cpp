@@ -48,7 +48,7 @@ public:
         const bool &bool_value
     ) override;
 
-    static Account getByColumnValue(
+    static Account *getByColumnValue(
         const std::string &where_clause,
         const std::vector<Config::Database::input_types> &bindings,
         const std::vector<std::string> &select_columns = {}
