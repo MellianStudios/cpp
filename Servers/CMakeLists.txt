@@ -10,4 +10,4 @@ target_include_directories(Auth PUBLIC "${PROJECT_SOURCE_DIR}/Core")
 target_link_libraries(Auth PUBLIC Account)
 
 target_include_directories(Manager PUBLIC "${PROJECT_SOURCE_DIR}/Core")
-target_link_libraries(Manager PUBLIC MigrationManager)
+target_link_libraries(Manager PUBLIC MigrationManager Command)

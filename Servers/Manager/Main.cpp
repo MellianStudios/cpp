@@ -1,8 +1,7 @@
 #include <iostream>
-#include "Database/Migration/MigrationManager.h"
+#include "Scripts/Commands/Command/Command.h"
 
-int main()
-{
+int main() {
     std::cout << "manager running" << std::endl;
 
     std::string command;
@@ -10,18 +9,10 @@ int main()
     while (true) {
         std::getline(std::cin, command);
 
-        if (command == "migrate") {
-            MigrationManager::update();
-        }
-
-        if (command == "migrate fresh") {
-            MigrationManager::fresh();
-        }
+        Command::run(command);
 
         if (command == "exit") {
             return 0;
         }
     }
-
-    return 0;
 }
