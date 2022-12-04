@@ -18,6 +18,7 @@ public:
 
     public:
         static const bool debug;
+        static const std::string data_path;
         enum data_types
         {
             type_int64 = 0,
