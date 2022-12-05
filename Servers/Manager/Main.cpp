@@ -1,7 +1,8 @@
 #include <iostream>
 #include "Scripts/Commands/Command/Command.h"
 
-int main() {
+int main()
+{
     std::cout << "manager running" << std::endl;
 
     std::string command;

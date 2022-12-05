@@ -3,7 +3,8 @@
 #include <vector>
 #include "String.h"
 
-std::vector<std::string> String::explode(const std::string &string, const std::string &delimiter) {
+std::vector<std::string> String::explode(const std::string &string, const std::string &delimiter)
+{
     std::vector<std::string> result;
 
     const char *delimiter_c = delimiter.c_str();
@@ -17,4 +18,11 @@ std::vector<std::string> String::explode(const std::string &string, const std::s
     }
 
     return result;
+}
+
+std::string String::toUpper(std::string string)
+{
+    std::transform(string.begin(), string.end(), string.begin(), ::toupper);
+
+    return string;
 }

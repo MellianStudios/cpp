@@ -16,6 +16,8 @@ public:
 
     virtual std::string getSchemaName() = 0;
 
+    virtual std::string getMigrationName() = 0;
+
     void createTable(const std::string &table);
 
     void dropTable(const std::string &table);

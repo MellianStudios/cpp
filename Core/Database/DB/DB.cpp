@@ -16,3 +16,8 @@ void DB::first(
 {
     MySQL::first(instance, query, bindings, column_list, select);
 }
+
+bool DB::tableExists(const std::string &database, const std::string &table)
+{
+    return MySQL::tableExists(database, table);
+}

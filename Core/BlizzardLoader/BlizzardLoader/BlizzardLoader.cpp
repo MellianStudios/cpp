@@ -1,6 +1,7 @@
 #include "BlizzardLoader.h"
 #include "WDBC.h"
 
-void BlizzardLoader::load() {
+void BlizzardLoader::load()
+{
     WDBC::loadAll();
 }

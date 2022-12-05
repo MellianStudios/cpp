@@ -18,6 +18,8 @@ public:
         const std::map<std::string, std::map<std::string, std::int_fast32_t>> &column_list,
         const std::vector<std::string> &select = {}
     );
+
+    static bool tableExists(const std::string &database, const std::string &table);
 };
 
 #endif //MELLIANCORE_DB_H

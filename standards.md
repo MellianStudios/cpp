@@ -3,3 +3,4 @@
 - Config must be used with full namespace you are not allowed to do it differently
 - there must be no declaration in any header file
 - everything must be in alphabetical order
+- no relative path include

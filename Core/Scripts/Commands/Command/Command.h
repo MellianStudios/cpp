@@ -2,7 +2,7 @@
 #define MELLIANCORE_COMMAND_H
 
 #include <string>
-#include "../CommandContract/CommandContract.h"
+#include "Scripts/Commands/CommandContract/CommandContract.h"
 
 class Command
 {

@@ -1,7 +1,7 @@
 #ifndef MELLIANCORE_LOOKUPCOMMAND_H
 #define MELLIANCORE_LOOKUPCOMMAND_H
 
-#include "../CommandContract/CommandContract.h"
+#include "Scripts/Commands/CommandContract/CommandContract.h"
 
 class LookupCommand : public CommandContract
 {

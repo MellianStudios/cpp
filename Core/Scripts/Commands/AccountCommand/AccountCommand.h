@@ -1,7 +1,7 @@
 #ifndef MELLIANCORE_ACCOUNTCOMMAND_H
 #define MELLIANCORE_ACCOUNTCOMMAND_H
 
-#include "../CommandContract/CommandContract.h"
+#include "Scripts/Commands/CommandContract/CommandContract.h"
 
 class AccountCommand : public CommandContract
 {

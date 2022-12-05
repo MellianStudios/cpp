@@ -33,3 +33,8 @@ std::string Migration_2022_11_27_01_47_07_create_accounts_table::getSchemaName()
 {
     return Config::Auth::Database::name;
 }
+
+std::string Migration_2022_11_27_01_47_07_create_accounts_table::getMigrationName()
+{
+    return "Migration_2022_11_27_01_47_07_create_accounts_table";
+}

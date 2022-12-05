@@ -1,14 +1,15 @@
 #include <iostream>
 #include "Command.h"
 #include "Support/String/String.h"
-#include "../AccountCommand/AccountCommand.h"
-#include "../LookupCommand/LookupCommand.h"
-#include "../MigrateCommand/MigrateCommand.h"
+#include "Scripts/Commands/AccountCommand/AccountCommand.h"
+#include "Scripts/Commands/LookupCommand/LookupCommand.h"
+#include "Scripts/Commands/MigrationCommand/MigrationCommand.h"
 
-bool Command::run(const std::string &command) {
+bool Command::run(const std::string &command)
+{
     AccountCommand account_command;
     LookupCommand lookup_command;
-    MigrateCommand migrate_command;
+    MigrationCommand migrate_command;
 
     CommandContract::CommandList commands = {
         account_command.getCommands(),
@@ -27,7 +28,8 @@ CommandContract::CommandHandler Command::getHandler(
     const CommandContract::CommandList &commands,
     const std::vector<std::string> &arguments,
     std::uint8_t index
-) {
+)
+{
     if (index > arguments.size()) {
         return &commandNotFound;
     }
@@ -45,7 +47,8 @@ CommandContract::CommandHandler Command::getHandler(
     return &commandNotFound;
 }
 
-bool Command::commandNotFound(const std::vector<std::string> &args) {
+bool Command::commandNotFound(const std::vector<std::string> &args)
+{
     std::cout << "command not found" << std::endl;
 
     return false;

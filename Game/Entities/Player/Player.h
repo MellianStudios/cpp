@@ -13,7 +13,8 @@ private:
 public:
     Player(int account, string name);
 
-    string getName() { return name; }
+    string getName()
+    { return name; }
 };
 
 

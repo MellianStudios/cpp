@@ -6,7 +6,9 @@
 class String
 {
 public:
-    static std::vector<std::string> explode(const std::string &string, const std::string &delimiter);
+    [[nodiscard]]static std::vector<std::string> explode(const std::string &string, const std::string &delimiter);
+
+    [[nodiscard]]static std::string toUpper(std::string string);
 };
 
 #endif //MELLIANCORE_STRING_H

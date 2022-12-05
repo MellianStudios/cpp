@@ -13,7 +13,7 @@ private:
     static mysqlx::Session getSession();
 
 public:
-    static bool unprepared(const std::string &raw_statement);
+    static void unprepared(const std::string &raw_statement);
 
     static std::map<std::int64_t, std::map<std::string, std::string>> all(const std::string &raw_statement);
 
@@ -24,6 +24,8 @@ public:
         const std::map<std::string, std::map<std::string, std::int_fast32_t>> &column_list,
         const std::vector<std::string> &select = {}
     );
+
+    static bool tableExists(const std::string &database, const std::string &table);
 };
 
 #endif //MELLIANCORE_MYSQL_H

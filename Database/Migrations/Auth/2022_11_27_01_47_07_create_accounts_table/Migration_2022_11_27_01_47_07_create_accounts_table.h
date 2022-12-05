@@ -11,6 +11,8 @@ public:
     void down() override;
 
     std::string getSchemaName() override;
+
+    std::string getMigrationName() override;
 };
 
 #endif //MELLIANCORE_MIGRATION_2022_11_27_01_47_07_CREATE_ACCOUNTS_TABLE_H

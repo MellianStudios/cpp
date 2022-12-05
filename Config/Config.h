@@ -19,6 +19,7 @@ public:
     public:
         static const bool debug;
         static const std::string data_path;
+        static const std::string project_path;
         enum data_types
         {
             type_int64 = 0,
@@ -35,6 +36,26 @@ public:
     {
     private:
         Auth() = default;
+
+    public:
+        class Database
+        {
+        private:
+            Database() = default;
+
+        public:
+            static const std::string host;
+            static const std::string port;
+            static const std::string name;
+            static const std::string username;
+            static const std::string password;
+        };
+    };
+
+    class Main
+    {
+    private:
+        Main() = default;
 
     public:
         class Database

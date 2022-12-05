@@ -17,13 +17,11 @@ mysqlx::Session MySQL::getSession()
     return session;
 }
 
-bool MySQL::unprepared(const std::string &raw_statement)
+void MySQL::unprepared(const std::string &raw_statement)
 {
     mysqlx::Session session = getSession();
 
     session.sql(raw_statement).execute();
-
-    return true;
 }
 
 std::map<std::int64_t, std::map<std::string, std::string>> MySQL::all(const std::string &raw_statement)
@@ -164,4 +162,11 @@ void MySQL::first(
             }
         }
     }
+}
+
+bool MySQL::tableExists(const std::string &database, const std::string &table)
+{
+    mysqlx::Session session = getSession();
+
+    return session.getSchema(database).getTable(table).existsInDatabase();
 }
