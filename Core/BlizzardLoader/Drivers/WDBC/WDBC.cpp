@@ -104,6 +104,47 @@ void WDBC::addStrings(
     const std::map<std::uint32_t, std::string> &strings
 )
 {
+    if constexpr (
+        (std::is_same_v<TRaw, AreaPOI<std::uint32_t>> && std::is_same_v<TWithStrings, AreaPOI<std::string>>)
+        ||
+        (std::is_same_v<TRaw, Achievement<std::uint32_t>> && std::is_same_v<TWithStrings, Achievement<std::string>>)
+        ) {
+        with_strings.name_1 = raw.name_1 > 0 ? strings.at(raw.name_1) : "";
+        with_strings.name_2 = raw.name_2 > 0 ? strings.at(raw.name_2) : "";
+        with_strings.name_3 = raw.name_3 > 0 ? strings.at(raw.name_3) : "";
+        with_strings.name_4 = raw.name_4 > 0 ? strings.at(raw.name_4) : "";
+        with_strings.name_5 = raw.name_5 > 0 ? strings.at(raw.name_5) : "";
+        with_strings.name_6 = raw.name_6 > 0 ? strings.at(raw.name_6) : "";
+        with_strings.name_7 = raw.name_7 > 0 ? strings.at(raw.name_7) : "";
+        with_strings.name_8 = raw.name_8 > 0 ? strings.at(raw.name_8) : "";
+        with_strings.name_9 = raw.name_9 > 0 ? strings.at(raw.name_9) : "";
+        with_strings.name_10 = raw.name_10 > 0 ? strings.at(raw.name_10) : "";
+        with_strings.name_11 = raw.name_11 > 0 ? strings.at(raw.name_11) : "";
+        with_strings.name_12 = raw.name_12 > 0 ? strings.at(raw.name_12) : "";
+        with_strings.name_13 = raw.name_13 > 0 ? strings.at(raw.name_13) : "";
+        with_strings.name_14 = raw.name_14 > 0 ? strings.at(raw.name_14) : "";
+        with_strings.name_15 = raw.name_15 > 0 ? strings.at(raw.name_15) : "";
+        with_strings.name_16 = raw.name_16 > 0 ? strings.at(raw.name_16) : "";
+        with_strings.name_flags = raw.name_flags;
+        with_strings.description_1 = raw.description_1 > 0 ? strings.at(raw.description_1) : "";
+        with_strings.description_2 = raw.description_2 > 0 ? strings.at(raw.description_2) : "";
+        with_strings.description_3 = raw.description_3 > 0 ? strings.at(raw.description_3) : "";
+        with_strings.description_4 = raw.description_4 > 0 ? strings.at(raw.description_4) : "";
+        with_strings.description_5 = raw.description_5 > 0 ? strings.at(raw.description_5) : "";
+        with_strings.description_6 = raw.description_6 > 0 ? strings.at(raw.description_6) : "";
+        with_strings.description_7 = raw.description_7 > 0 ? strings.at(raw.description_7) : "";
+        with_strings.description_8 = raw.description_8 > 0 ? strings.at(raw.description_8) : "";
+        with_strings.description_9 = raw.description_9 > 0 ? strings.at(raw.description_9) : "";
+        with_strings.description_10 = raw.description_10 > 0 ? strings.at(raw.description_10) : "";
+        with_strings.description_11 = raw.description_11 > 0 ? strings.at(raw.description_11) : "";
+        with_strings.description_12 = raw.description_12 > 0 ? strings.at(raw.description_12) : "";
+        with_strings.description_13 = raw.description_13 > 0 ? strings.at(raw.description_13) : "";
+        with_strings.description_14 = raw.description_14 > 0 ? strings.at(raw.description_14) : "";
+        with_strings.description_15 = raw.description_15 > 0 ? strings.at(raw.description_15) : "";
+        with_strings.description_16 = raw.description_16 > 0 ? strings.at(raw.description_16) : "";
+        with_strings.description_flags = raw.description_flags;
+    }
+
     if constexpr (std::is_same_v<TRaw, AreaPOI<std::uint32_t>> && std::is_same_v<TWithStrings, AreaPOI<std::string>>) {
         with_strings.id = raw.id;
         with_strings.importance = raw.importance;
@@ -123,40 +164,6 @@ void WDBC::addStrings(
         with_strings.map_id = raw.map_id;
         with_strings.flags = raw.flags;
         with_strings.area_table_id = raw.area_table_id;
-        with_strings.name_1 = raw.name_1 > 0 ? strings.at(raw.name_1) : "";
-        with_strings.name_2 = raw.name_2 > 0 ? strings.at(raw.name_2) : "";
-        with_strings.name_3 = raw.name_3 > 0 ? strings.at(raw.name_3) : "";
-        with_strings.name_4 = raw.name_4 > 0 ? strings.at(raw.name_4) : "";
-        with_strings.name_5 = raw.name_5 > 0 ? strings.at(raw.name_5) : "";
-        with_strings.name_6 = raw.name_6 > 0 ? strings.at(raw.name_6) : "";
-        with_strings.name_7 = raw.name_7 > 0 ? strings.at(raw.name_7) : "";
-        with_strings.name_8 = raw.name_8 > 0 ? strings.at(raw.name_8) : "";
-        with_strings.name_9 = raw.name_9 > 0 ? strings.at(raw.name_9) : "";
-        with_strings.name_10 = raw.name_10 > 0 ? strings.at(raw.name_10) : "";
-        with_strings.name_11 = raw.name_11 > 0 ? strings.at(raw.name_11) : "";
-        with_strings.name_12 = raw.name_12 > 0 ? strings.at(raw.name_12) : "";
-        with_strings.name_13 = raw.name_13 > 0 ? strings.at(raw.name_13) : "";
-        with_strings.name_14 = raw.name_14 > 0 ? strings.at(raw.name_14) : "";
-        with_strings.name_15 = raw.name_15 > 0 ? strings.at(raw.name_15) : "";
-        with_strings.name_16 = raw.name_16 > 0 ? strings.at(raw.name_16) : "";
-        with_strings.name_flags = raw.name_flags;
-        with_strings.description_1 = raw.description_1 > 0 ? strings.at(raw.description_1) : "";
-        with_strings.description_2 = raw.description_2 > 0 ? strings.at(raw.description_2) : "";
-        with_strings.description_3 = raw.description_3 > 0 ? strings.at(raw.description_3) : "";
-        with_strings.description_4 = raw.description_4 > 0 ? strings.at(raw.description_4) : "";
-        with_strings.description_5 = raw.description_5 > 0 ? strings.at(raw.description_5) : "";
-        with_strings.description_6 = raw.description_6 > 0 ? strings.at(raw.description_6) : "";
-        with_strings.description_7 = raw.description_7 > 0 ? strings.at(raw.description_7) : "";
-        with_strings.description_8 = raw.description_8 > 0 ? strings.at(raw.description_8) : "";
-        with_strings.description_9 = raw.description_9 > 0 ? strings.at(raw.description_9) : "";
-        with_strings.description_10 = raw.description_10 > 0 ? strings.at(raw.description_10) : "";
-        with_strings.description_11 = raw.description_11 > 0 ? strings.at(raw.description_11) : "";
-        with_strings.description_12 = raw.description_12 > 0 ? strings.at(raw.description_12) : "";
-        with_strings.description_13 = raw.description_13 > 0 ? strings.at(raw.description_13) : "";
-        with_strings.description_14 = raw.description_14 > 0 ? strings.at(raw.description_14) : "";
-        with_strings.description_15 = raw.description_15 > 0 ? strings.at(raw.description_15) : "";
-        with_strings.description_16 = raw.description_16 > 0 ? strings.at(raw.description_16) : "";
-        with_strings.description_flags = raw.description_flags;
         with_strings.world_state_id = raw.world_state_id;
         with_strings.world_map_link = raw.world_map_link;
     } else if constexpr (
@@ -168,40 +175,6 @@ void WDBC::addStrings(
         with_strings.required_faction = raw.required_faction;
         with_strings.map_id = raw.map_id;
         with_strings.parent_achievement = raw.parent_achievement;
-        with_strings.name_1 = raw.name_1 > 0 ? strings.at(raw.name_1) : "";
-        with_strings.name_2 = raw.name_2 > 0 ? strings.at(raw.name_2) : "";
-        with_strings.name_3 = raw.name_3 > 0 ? strings.at(raw.name_3) : "";
-        with_strings.name_4 = raw.name_4 > 0 ? strings.at(raw.name_4) : "";
-        with_strings.name_5 = raw.name_5 > 0 ? strings.at(raw.name_5) : "";
-        with_strings.name_6 = raw.name_6 > 0 ? strings.at(raw.name_6) : "";
-        with_strings.name_7 = raw.name_7 > 0 ? strings.at(raw.name_7) : "";
-        with_strings.name_8 = raw.name_8 > 0 ? strings.at(raw.name_8) : "";
-        with_strings.name_9 = raw.name_9 > 0 ? strings.at(raw.name_9) : "";
-        with_strings.name_10 = raw.name_10 > 0 ? strings.at(raw.name_10) : "";
-        with_strings.name_11 = raw.name_11 > 0 ? strings.at(raw.name_11) : "";
-        with_strings.name_12 = raw.name_12 > 0 ? strings.at(raw.name_12) : "";
-        with_strings.name_13 = raw.name_13 > 0 ? strings.at(raw.name_13) : "";
-        with_strings.name_14 = raw.name_14 > 0 ? strings.at(raw.name_14) : "";
-        with_strings.name_15 = raw.name_15 > 0 ? strings.at(raw.name_15) : "";
-        with_strings.name_16 = raw.name_16 > 0 ? strings.at(raw.name_16) : "";
-        with_strings.name_flags = raw.name_flags;
-        with_strings.description_1 = raw.description_1 > 0 ? strings.at(raw.description_1) : "";
-        with_strings.description_2 = raw.description_2 > 0 ? strings.at(raw.description_2) : "";
-        with_strings.description_3 = raw.description_3 > 0 ? strings.at(raw.description_3) : "";
-        with_strings.description_4 = raw.description_4 > 0 ? strings.at(raw.description_4) : "";
-        with_strings.description_5 = raw.description_5 > 0 ? strings.at(raw.description_5) : "";
-        with_strings.description_6 = raw.description_6 > 0 ? strings.at(raw.description_6) : "";
-        with_strings.description_7 = raw.description_7 > 0 ? strings.at(raw.description_7) : "";
-        with_strings.description_8 = raw.description_8 > 0 ? strings.at(raw.description_8) : "";
-        with_strings.description_9 = raw.description_9 > 0 ? strings.at(raw.description_9) : "";
-        with_strings.description_10 = raw.description_10 > 0 ? strings.at(raw.description_10) : "";
-        with_strings.description_11 = raw.description_11 > 0 ? strings.at(raw.description_11) : "";
-        with_strings.description_12 = raw.description_12 > 0 ? strings.at(raw.description_12) : "";
-        with_strings.description_13 = raw.description_13 > 0 ? strings.at(raw.description_13) : "";
-        with_strings.description_14 = raw.description_14 > 0 ? strings.at(raw.description_14) : "";
-        with_strings.description_15 = raw.description_15 > 0 ? strings.at(raw.description_15) : "";
-        with_strings.description_16 = raw.description_16 > 0 ? strings.at(raw.description_16) : "";
-        with_strings.description_flags = raw.description_flags;
         with_strings.category_id = raw.category_id;
         with_strings.points = raw.points;
         with_strings.order_in_category = raw.order_in_category;
