@@ -1,19 +1,34 @@
 #include <iostream>
 #include "Scripts/Commands/Command/Command.h"
+#include "Support/Log/Log.h"
 
 int main()
 {
-    std::cout << "manager running" << std::endl;
+    Log::init();
+    Command::init(Command::App::Manager);
 
-    std::string command;
+    MEL_INFO("manager running");
 
-    while (true) {
-        std::getline(std::cin, command);
+    std::atomic<bool> exit = false;
 
-        Command::run(command);
+    std::thread console = std::thread([&]() {
+        std::string command;
 
-        if (command == "exit") {
-            return 0;
+        while (!exit) {
+            std::getline(std::cin, command);
+
+            if (command == "exit") {
+                exit = true;
+            } else {
+                Command::run(command, true);
+            }
         }
-    }
+    });
+
+    // dummy
+    while (!exit) {}
+
+    console.join();
+
+    MEL_INFO("manager bye");
 }

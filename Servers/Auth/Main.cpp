@@ -1,33 +1,34 @@
 #include <iostream>
-#include "Models/Auth/Account/Account.h"
+#include "Scripts/Commands/Command/Command.h"
+#include "Support/Log/Log.h"
 
 int main()
 {
-    std::string command;
+    Log::init();
+    Command::init(Command::App::Auth);
 
-    std::cout << "auth server running" << std::endl;
+    MEL_INFO("auth server running");
 
-    while (true) {
-        std::cout << "enter command" << std::endl;
+    std::atomic<bool> exit = false;
 
-        std::getline(std::cin, command);
+    std::thread console = std::thread([&]() {
+        std::string command;
 
-        if (command == "ACCOUNT SEARCH") {
-            int id;
+        while (!exit) {
+            std::getline(std::cin, command);
 
-            std::cout << "enter ID" << std::endl;
-
-            std::cin >> id;
-
-            Account *account = Account::getByColumnValue("id = ?", {id});
-
-            std::cout << "username " << account->m_username << std::endl;
+            if (command == "exit") {
+                exit = true;
+            } else {
+                Command::run(command, true);
+            }
         }
+    });
 
-        if (command == "exit") {
-            return 0;
-        }
-    }
+    // dummy
+    while (!exit) {}
 
-    return 0;
+    console.join();
+
+    MEL_INFO("auth bye");
 }

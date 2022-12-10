@@ -1,0 +1,14 @@
+{
+  "api": [],
+  "auth": [],
+  "chat": [],
+  "guild": [],
+  "instance": [],
+  "mail": [],
+  "manager": [
+    "migration.run",
+    "migration.run:fresh",
+    "migration.create"
+  ],
+  "world": []
+}

@@ -1,55 +1,14 @@
-#include <iostream>
-#include "Command.h"
-#include "Support/String/String.h"
-#include "Scripts/Commands/AccountCommand/AccountCommand.h"
-#include "Scripts/Commands/LookupCommand/LookupCommand.h"
-#include "Scripts/Commands/MigrationCommand/MigrationCommand.h"
+#include "Scripts/Commands/Command/Command.h"
 
-bool Command::run(const std::string &command)
-{
-    AccountCommand account_command;
-    LookupCommand lookup_command;
-    MigrationCommand migrate_command;
-
-    CommandContract::CommandList commands = {
-        account_command.getCommands(),
-        lookup_command.getCommands(),
-        migrate_command.getCommands(),
-    };
-
-    std::vector<std::string> arguments = String::explode(command, " ");
-
-    CommandContract::CommandHandler command_handler = getHandler(commands, arguments);
-
-    return command_handler(arguments);
-}
-
-CommandContract::CommandHandler Command::getHandler(
-    const CommandContract::CommandList &commands,
-    const std::vector<std::string> &arguments,
-    std::uint8_t index
-)
-{
-    if (index > arguments.size()) {
-        return &commandNotFound;
-    }
-
-    for (const CommandDefinition &command: commands) {
-        if (command.name == arguments[index] || (command.name.empty() && arguments.size() == index)) {
-            if (std::holds_alternative<CommandContract::CommandList>(command.handler)) {
-                return getHandler(std::get<CommandContract::CommandList>(command.handler), arguments, ++index);
-            } else {
-                return std::get<CommandContract::CommandHandler>(command.handler);
-            }
-        }
-    }
-
-    return &commandNotFound;
-}
-
-bool Command::commandNotFound(const std::vector<std::string> &args)
-{
-    std::cout << "command not found" << std::endl;
-
-    return false;
-}
+Command::App Command::m_running_server;
+std::vector<PermissionModel> Command::m_console_permissions;
+std::map<std::uint8_t, std::string> Command::m_app_names = {
+    {0, "api"},
+    {1, "auth"},
+    {2, "chat"},
+    {3, "guild"},
+    {4, "instance"},
+    {5, "mail"},
+    {6, "manager"},
+    {7, "world"},
+};

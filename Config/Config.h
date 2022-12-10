@@ -32,26 +32,6 @@ public:
         };
     };
 
-    class Auth
-    {
-    private:
-        Auth() = default;
-
-    public:
-        class Database
-        {
-        private:
-            Database() = default;
-
-        public:
-            static const std::string host;
-            static const std::string port;
-            static const std::string name;
-            static const std::string username;
-            static const std::string password;
-        };
-    };
-
     class Main
     {
     private:

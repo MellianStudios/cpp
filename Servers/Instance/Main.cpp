@@ -1,8 +1,34 @@
 #include <iostream>
+#include "Scripts/Commands/Command/Command.h"
+#include "Support/Log/Log.h"
 
 int main()
 {
-    std::cout << "instance server running" << std::endl;
+    Log::init();
+    Command::init(Command::App::Instance);
 
-    return 0;
+    MEL_INFO("instance server running");
+
+    std::atomic<bool> exit = false;
+
+    std::thread console = std::thread([&]() {
+        std::string command;
+
+        while (!exit) {
+            std::getline(std::cin, command);
+
+            if (command == "exit") {
+                exit = true;
+            } else {
+                Command::run(command, true);
+            }
+        }
+    });
+
+    // dummy
+    while (!exit) {}
+
+    console.join();
+
+    MEL_INFO("instance bye");
 }
