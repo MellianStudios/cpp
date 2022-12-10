@@ -9,7 +9,6 @@
 struct CommandDefinition
 {
     std::string name;
-    bool permission;
     std::variant<std::function<bool(const std::vector<std::string> &args)>, std::vector<CommandDefinition>> handler;
 };
 

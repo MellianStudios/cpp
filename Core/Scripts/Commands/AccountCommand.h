@@ -9,10 +9,10 @@ class AccountCommand : public CommandContract
 public:
     CommandDefinition getCommands() override
     {
-        return {"account", true, CommandList{
-            {"",    true, &handleAccount},
-            {"set", true, CommandList{
-                {"password", true, &handleSetPassword},
+        return {"account", CommandList{
+            {"",    &handleAccount},
+            {"set", CommandList{
+                {"password", &handleSetPassword},
             }}
         }};
     }

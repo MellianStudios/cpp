@@ -10,9 +10,9 @@ class LookupCommand : public CommandContract
 public:
     CommandDefinition getCommands() override
     {
-        return {"lookup", true, CommandList{
-            {"item",    true, &handleItem},
-            {"faction", true, &handleFaction},
+        return {"lookup", CommandList{
+            {"item",    &handleItem},
+            {"faction", &handleFaction},
         }};
     }
 

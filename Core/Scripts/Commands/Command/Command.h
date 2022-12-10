@@ -95,12 +95,16 @@ public:
 
         CommandContract::CommandHandler command_handler = getHandler(commands, arguments, full_command);
 
-        bool forbidden = std::none_of(
-            m_console_permissions.begin(),
-            m_console_permissions.end(),
-            [&full_command](const PermissionModel &permission) {
-                return permission.m_name == full_command;
-            });
+        bool forbidden = false;
+
+        if (in_console) {
+            forbidden = std::none_of(
+                m_console_permissions.begin(),
+                m_console_permissions.end(),
+                [&full_command](const PermissionModel &permission) {
+                    return permission.m_name == full_command;
+                });
+        }
 
         if (forbidden) {
             return commandForbidden(arguments);

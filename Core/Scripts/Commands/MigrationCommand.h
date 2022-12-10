@@ -9,10 +9,10 @@ class MigrationCommand : public CommandContract
 public:
     CommandDefinition getCommands() override
     {
-        return {"migration", true, CommandList{
-            {"run",       true, &handleMigrationRun},
-            {"run:fresh", true, &handleMigrationFresh},
-            {"create",    true, &handleMigrationCreate},
+        return {"migration", CommandList{
+            {"run",       &handleMigrationRun},
+            {"run:fresh", &handleMigrationFresh},
+            {"create",    &handleMigrationCreate},
         }};
     }
 
