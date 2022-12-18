@@ -1,4 +1,5 @@
 add_executable(API API/Main.cpp)
+set_target_properties(API PROPERTIES OUTPUT_NAME "API" SUFFIX ".cgi")
 add_executable(Auth Auth/Main.cpp)
 add_executable(Chat Chat/Main.cpp)
 add_executable(Guild Guild/Main.cpp)
@@ -8,7 +9,7 @@ add_executable(Manager Manager/Main.cpp)
 add_executable(World World/Main.cpp)
 
 target_include_directories(API PUBLIC "${PROJECT_SOURCE_DIR}/Core")
-target_link_libraries(API PUBLIC Log Command)
+target_link_libraries(API PUBLIC Log Command APIManager)
 
 target_include_directories(Auth PUBLIC "${PROJECT_SOURCE_DIR}/Core")
 target_link_libraries(Auth PUBLIC Log Command)

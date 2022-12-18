@@ -49,8 +49,12 @@ private:
                 if (std::holds_alternative<CommandContract::CommandList>(command.handler)) {
                     full_command += command.name + ".";
 
-                    return getHandler(std::get<CommandContract::CommandList>(command.handler), arguments, full_command,
-                                      ++index);
+                    return getHandler(
+                        std::get<CommandContract::CommandList>(command.handler),
+                        arguments,
+                        full_command,
+                        ++index
+                    );
                 } else {
                     full_command += command.name;
 

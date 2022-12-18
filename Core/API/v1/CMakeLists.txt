@@ -1,0 +1,12 @@
+add_library(AccountAPI AccountAPI.h)
+set_target_properties(AccountAPI PROPERTIES LINKER_LANGUAGE CXX)
+target_include_directories(AccountAPI PUBLIC "${PROJECT_SOURCE_DIR}/Core/Support/Json")
+target_include_directories(AccountAPI PUBLIC "${PROJECT_SOURCE_DIR}/Core/Support/Log")
+target_include_directories(AccountAPI PUBLIC "${PROJECT_SOURCE_DIR}/Core/Scripts/Commands/Command")
+target_link_libraries(AccountAPI PUBLIC Log Command Json)
+
+add_library(APIManager APIManager.h)
+set_target_properties(APIManager PROPERTIES LINKER_LANGUAGE CXX)
+target_include_directories(APIManager PUBLIC "${PROJECT_SOURCE_DIR}/Config")
+target_include_directories(APIManager PUBLIC "${PROJECT_SOURCE_DIR}/Core/Support/Log")
+target_link_libraries(APIManager PUBLIC pistache Config Log AccountAPI)

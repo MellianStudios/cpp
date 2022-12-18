@@ -1,3 +1,7 @@
+### prerequisites
+- mysqlcppconn 8.0.x
+
+### install
 1. mkdir build
 2. cmake -S . -B build/ -DSERVER_TARGET_PATH=/path_to_where_you_want_executables_and_config
 3. .env by default contains only required settings you are free to override any other setting by adding it to .env you can find list of all settings in Config/Config.cpp

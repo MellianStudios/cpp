@@ -14,7 +14,7 @@ private:
     {
         mysqlx::Session session(
             Config::Main::Database::host,
-            std::stoi(Config::Main::Database::port),
+            Config::Main::Database::port,
             Config::Main::Database::username,
             Config::Main::Database::password
         );

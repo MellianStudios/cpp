@@ -45,7 +45,7 @@ public:
 
         public:
             static const std::string host;
-            static const std::string port;
+            static const std::uint32_t port;
             static const std::string name;
             static const std::string username;
             static const std::string password;
@@ -59,6 +59,17 @@ public:
 
     public:
         typedef std::variant<std::uint64_t, std::int64_t, double, std::string, bool> input_types;
+    };
+
+    class API
+    {
+    private:
+        API() = default;
+
+    public:
+        static const std::string ssl_certificate_path;
+        static const std::string ssl_key_path;
+        static const std::uint32_t port;
     };
 };
 

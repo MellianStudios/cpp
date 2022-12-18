@@ -8,6 +8,7 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(spdlog)
 
+
 FetchContent_Declare(
         json
         GIT_REPOSITORY https://github.com/nlohmann/json
